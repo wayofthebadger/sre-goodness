@@ -17,4 +17,4 @@ docker run -p 8080:8080 latest
 
 Go to http://localhost:8080
 
-Be (very very) mildy impressed at a IT system's engineer's first ever real try at a GoLang app
+Be (very very) mildy impressed/horrified at an IT system's engineer's first ever real try at a GoLang app
