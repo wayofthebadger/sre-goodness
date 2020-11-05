@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -19,32 +20,34 @@ type EnvVariables struct {
 
 // ApiKey is a Struct to describe the APIkey from a JSON file
 type ApiKey struct {
-	Apikey string `json:"apikey"`
+	Apikey string
 }
 
 func getstocks(w http.ResponseWriter, r *http.Request) {
 
 	// Get the API Key from ConfigMap
-	APIKey, err := os.Open("config/config.json")
+	APIKey, err := ioutil.ReadFile("config/config.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// Grab and decode the ApiKey from JSON file
-	var cfg ApiKey
-	cfgDecoder := json.NewDecoder(APIKey)
-	err = cfgDecoder.Decode(&cfg)
-	if err != nil {
-		log.Fatal(err)
-	}
+	apikey := string(APIKey)
+
+	// Print to standard out for error checking
+	fmt.Println(apikey)
 
 	// Get Env variables
 	Symbol := os.Getenv("Symbol")
-	//n := os.Getenv("NDAYS")
+	Ndays := os.Getenv("NDAYS")
 
-	//s := "MSFT"
+	// Construct URL for API call
+	url := ("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&apikey=" + apikey + "&symbol=" + Symbol)
 
-	url := ("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&apikey=" + cfg.Apikey + "&symbol=" + Symbol)
+	// Print to standard out for error checking
+	fmt.Println(Symbol)
+	fmt.Println(Ndays)
+	fmt.Println(url)
 
 	// GET request for API using APIKey and Symbol variable
 	response, responseErr := http.Get(url)

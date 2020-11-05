@@ -1,15 +1,17 @@
 FROM golang:alpine
 
-# Set necessary environmet variables needed for our image
-ENV Symbol=MSFT \
-    NDAYS=4
+# Set necessary environmet variables needed for our image for testing removed for prod build
+# ENV Symbol=MSFT \
+#     NDAYS=4
 
 # Move to working directory /build
 WORKDIR /build
 
 # Copy the code into the container
 COPY . .
-COPY ./config/config.json /dist/config/config.json
+
+# Create config for testing, removed for prod
+# COPY ./config/config.json /dist/config/config.json
 
 # Build the application
 RUN go build stocks.go
