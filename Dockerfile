@@ -11,7 +11,7 @@ WORKDIR /build
 COPY . .
 
 # Create config for testing, removed for prod
-# COPY ./config/config.json /dist/config/config.json
+# COPY ./config/config.txt /dist/config/config.txt
 
 # Build the application
 RUN go build stocks.go
