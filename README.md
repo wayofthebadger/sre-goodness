@@ -13,7 +13,7 @@ docker build . -t latest
 
 Run the next command to spawn the container
 
-docker run -p 8080:8080 latest
+docker run -p 8080:8080 wayofthebadger/sre-goodness
 
 Go to http://localhost:8080
 
