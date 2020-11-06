@@ -3,9 +3,9 @@ SRE build fun times
 
 This is my repo for the SRE funtimes test
 
-Running from Command line locally using Docker
+# Running from Command line
 
-# Prerequisites
+## Prerequisites
 
 Export the required variables to your environment:
 ```
@@ -25,7 +25,7 @@ NOTE: on a managed OSX machine you'll need to allow the app to open a port.
 
 Go to http://localhost:8080
 
-# Build container
+# Building and running in container
 
 To build this please first ensure you've got docker installed on your local system
 
