@@ -31,6 +31,17 @@ To build this please first ensure you've got docker installed on your local syst
 
 Uncomment the variables fields in the Dockerfile (add the comments again for k8s deployment)
 
+```
+ENV Symbol=MSFT \
+    NDAYS=4
+
+... ...
+
+# Create config for testing, removed for prod
+COPY ./config/config.txt /dist/config/config.txt
+... ...
+```
+
 Ensure you're in the root of this Git repo
 
 Run the following command to build the image
