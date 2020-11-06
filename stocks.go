@@ -106,7 +106,7 @@ func getstocks(w http.ResponseWriter, r *http.Request) {
 
 	// Get all the close values for each of the dates and return write to output
 	for date, close := range data["Time Series (Daily)"].(map[string]interface{}) {
-		fmt.Fprintln("Date:", date, "Value:", close.(map[string]interface{})["4. close"])
+		fmt.Fprintln(w, "Date:", date, "Value:", close.(map[string]interface{})["4. close"])
 	}
 
 }
