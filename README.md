@@ -3,6 +3,16 @@ SRE build fun times
 
 This is my repo for the SRE funtimes test
 
+Running from Command line
+Pre requesits
+Export the required variables to your environment:
+$ export Symbol=MSFT
+$ export NDAY=3
+
+Create an apikey file
+$ echo -n '<apikey>' > confg/config.txt
+
+Build into a container
 To build this please first ensure you've got docker installed on your local system
 
 Ensure you're in the root of this Git repo
